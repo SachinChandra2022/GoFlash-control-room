@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Custom selection color */
+  ::selection {
+    background: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+  }
+}
+
+@layer utilities {
+  /* Neon text glow helpers */
+  .glow-emerald {
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.7),
+                 0 0 20px rgba(52, 211, 153, 0.4),
+                 0 0 40px rgba(52, 211, 153, 0.2);
+  }
+
+  .glow-rose {
+    text-shadow: 0 0 10px rgba(244, 63, 94, 0.7),
+                 0 0 20px rgba(244, 63, 94, 0.4),
+                 0 0 40px rgba(244, 63, 94, 0.2);
+  }
+
+  .glow-amber {
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.7),
+                 0 0 20px rgba(251, 191, 36, 0.4);
+  }
+
+  /* Pipeline connector line glow */
+  .pipe-line {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(52, 211, 153, 0.15) 30%,
+      rgba(52, 211, 153, 0.3) 50%,
+      rgba(52, 211, 153, 0.15) 70%,
+      transparent 100%
+    );
+  }
+
+  /* Terminal text rendering */
+  .terminal-text {
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "calt" 0;
+    letter-spacing: 0.02em;
+  }
+}
