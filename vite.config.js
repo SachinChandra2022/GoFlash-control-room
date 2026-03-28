@@ -30,10 +30,10 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-          motion: ["framer-motion"],
-          icons:  ["lucide-react"],
+        manualChunks: (id) => {
+          if (id.includes("react-dom") || id.includes("react/")) return "vendor";
+          if (id.includes("framer-motion")) return "motion";
+          if (id.includes("lucide-react")) return "icons";
         },
       },
     },
